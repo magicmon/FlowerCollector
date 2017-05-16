@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0F9353311EC9A2AA009F561F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9353301EC9A2AA009F561F /* AppDelegate.swift */; };
-		0F9353331EC9A2AA009F561F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9353321EC9A2AA009F561F /* ViewController.swift */; };
 		0F9353361EC9A2AA009F561F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F9353341EC9A2AA009F561F /* Main.storyboard */; };
 		0F9353381EC9A2AA009F561F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F9353371EC9A2AA009F561F /* Assets.xcassets */; };
 		0F93533B1EC9A2AA009F561F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F9353391EC9A2AA009F561F /* LaunchScreen.storyboard */; };
 		0F9353461EC9A2AB009F561F /* FlowerCollectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9353451EC9A2AB009F561F /* FlowerCollectorTests.swift */; };
 		0F9353511EC9A2AB009F561F /* FlowerCollectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9353501EC9A2AB009F561F /* FlowerCollectorUITests.swift */; };
+		0F9353611EC9A392009F561F /* FlowerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9353601EC9A392009F561F /* FlowerListController.swift */; };
+		0F9353641EC9A480009F561F /* FlowerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9353631EC9A480009F561F /* FlowerListCell.swift */; };
+		0F9353671EC9A6CC009F561F /* FlowerListFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9353661EC9A6CC009F561F /* FlowerListFlowLayout.swift */; };
+		0F93536A1ECA9730009F561F /* FlowerInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9353691ECA9730009F561F /* FlowerInfoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,6 @@
 /* Begin PBXFileReference section */
 		0F93532D1EC9A2AA009F561F /* FlowerCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowerCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9353301EC9A2AA009F561F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F9353321EC9A2AA009F561F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0F9353351EC9A2AA009F561F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F9353371EC9A2AA009F561F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F93533A1EC9A2AA009F561F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,10 @@
 		0F93534C1EC9A2AB009F561F /* FlowerCollectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowerCollectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9353501EC9A2AB009F561F /* FlowerCollectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCollectorUITests.swift; sourceTree = "<group>"; };
 		0F9353521EC9A2AB009F561F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F9353601EC9A392009F561F /* FlowerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerListController.swift; sourceTree = "<group>"; };
+		0F9353631EC9A480009F561F /* FlowerListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerListCell.swift; sourceTree = "<group>"; };
+		0F9353661EC9A6CC009F561F /* FlowerListFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerListFlowLayout.swift; sourceTree = "<group>"; };
+		0F9353691ECA9730009F561F /* FlowerInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerInfoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				0F9353301EC9A2AA009F561F /* AppDelegate.swift */,
-				0F9353321EC9A2AA009F561F /* ViewController.swift */,
+				0F9353601EC9A392009F561F /* FlowerListController.swift */,
+				0F9353681ECA9718009F561F /* Controllers */,
+				0F9353651EC9A6B8009F561F /* Layouts */,
+				0F9353621EC9A462009F561F /* Views */,
 				0F9353341EC9A2AA009F561F /* Main.storyboard */,
 				0F9353371EC9A2AA009F561F /* Assets.xcassets */,
 				0F9353391EC9A2AA009F561F /* LaunchScreen.storyboard */,
@@ -123,6 +132,30 @@
 				0F9353521EC9A2AB009F561F /* Info.plist */,
 			);
 			path = FlowerCollectorUITests;
+			sourceTree = "<group>";
+		};
+		0F9353621EC9A462009F561F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0F9353631EC9A480009F561F /* FlowerListCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0F9353651EC9A6B8009F561F /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				0F9353661EC9A6CC009F561F /* FlowerListFlowLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		0F9353681ECA9718009F561F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0F9353691ECA9730009F561F /* FlowerInfoController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F9353331EC9A2AA009F561F /* ViewController.swift in Sources */,
+				0F9353641EC9A480009F561F /* FlowerListCell.swift in Sources */,
+				0F9353611EC9A392009F561F /* FlowerListController.swift in Sources */,
+				0F9353671EC9A6CC009F561F /* FlowerListFlowLayout.swift in Sources */,
+				0F93536A1ECA9730009F561F /* FlowerInfoController.swift in Sources */,
 				0F9353311EC9A2AA009F561F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +541,7 @@
 				0F9353571EC9A2AB009F561F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F9353581EC9A2AB009F561F /* Build configuration list for PBXNativeTarget "FlowerCollectorTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +550,7 @@
 				0F93535A1EC9A2AB009F561F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F93535B1EC9A2AB009F561F /* Build configuration list for PBXNativeTarget "FlowerCollectorUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +559,7 @@
 				0F93535D1EC9A2AB009F561F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
