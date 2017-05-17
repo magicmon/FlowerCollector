@@ -12,6 +12,8 @@ private let reuseIdentifier = "FlowerListCell"
 
 class FlowerListController: UICollectionViewController {
     
+    let flowersData = Flowers.loadFlowers()
+    
     var currentCard: Int = 0
     
     override func loadView() {
@@ -22,12 +24,6 @@ class FlowerListController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Initial Flow Layout Setup
-        let layout = collectionViewLayout as! FlowerListFlowLayout
-        layout.estimatedItemSize = CGSize(width: layout.itemSize.width * layout.standardItemScale,
-                                          height: layout.itemSize.height * layout.standardItemScale)
-        layout.minimumLineSpacing = -10 * UIScreen.main.scale
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,11 +44,12 @@ extension FlowerListController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return flowersData.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlowerListCell", for: indexPath) as! FlowerListCell
+        cell.flower = flowersData[indexPath.item]
         
         return cell
     }

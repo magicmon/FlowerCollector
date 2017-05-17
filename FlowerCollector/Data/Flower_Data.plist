@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>milk-can-1990088_1280</string>
+		<key>title</key>
+		<string>Ant</string>
+		<key>description</key>
+		<string>Not your parents sibling!
+This bug spits burning acid!</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>milk-can-1990088_1280</string>
+		<key>title</key>
+		<string>Bear</string>
+		<key>description</key>
+		<string>Does a bear poo in the woods?
+It&apos;s been days for this grumpy guy!</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>milk-can-1990088_1280</string>
+		<key>title</key>
+		<string>Brain</string>
+		<key>description</key>
+		<string>Guaranteed to</string>
+	</dict>
+    <dict>
+        <key>name</key>
+        <string>milk-can-1990088_1280</string>
+        <key>title</key>
+        <string>Brain</string>
+        <key>description</key>
+        <string>Guaranteed to</string>
+    </dict>
+</array>
+</plist>

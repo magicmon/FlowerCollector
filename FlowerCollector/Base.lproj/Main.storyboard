@@ -37,26 +37,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3XG-Om-FOF" customClass="FlowerListFlowLayout" customModule="FlowerCollector" customModuleProvider="target">
-                            <size key="itemSize" width="320" height="500"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="3XG-Om-FOF" customClass="FlowerListFlowLayout" customModule="FlowerCollector" customModuleProvider="target">
+                            <size key="itemSize" width="300" height="450"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlowerListCell" id="Kpi-Xp-seS" customClass="FlowerListCell" customModule="FlowerCollector" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="52" width="320" height="500"/>
+                                <rect key="frame" x="0.0" y="77" width="300" height="450"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvv-8k-c9A">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
-                                            <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dcG-9X-5km">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21w-2w-40O">
+                                                    <rect key="frame" x="8" y="8" width="38" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbr-HK-OCP">
+                                                    <rect key="frame" x="8" y="37" width="61" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="500" id="AxH-V0-AZO"/>
-                                                <constraint firstAttribute="width" constant="320" id="EXu-7S-7FH"/>
+                                                <constraint firstItem="21w-2w-40O" firstAttribute="leading" secondItem="Dvv-8k-c9A" secondAttribute="leading" constant="8" id="3qr-Pl-Ka8"/>
+                                                <constraint firstAttribute="height" constant="450" id="AxH-V0-AZO"/>
+                                                <constraint firstItem="dcG-9X-5km" firstAttribute="leading" secondItem="Dvv-8k-c9A" secondAttribute="leading" id="C7r-ya-hB4"/>
+                                                <constraint firstAttribute="width" constant="300" id="EXu-7S-7FH"/>
+                                                <constraint firstAttribute="trailing" secondItem="dcG-9X-5km" secondAttribute="trailing" id="JM5-kN-Wm7"/>
+                                                <constraint firstItem="dcG-9X-5km" firstAttribute="top" secondItem="Dvv-8k-c9A" secondAttribute="top" id="KKO-AO-XVL"/>
+                                                <constraint firstItem="wbr-HK-OCP" firstAttribute="top" secondItem="21w-2w-40O" secondAttribute="bottom" constant="11" id="ZZi-Ef-2Mh"/>
+                                                <constraint firstItem="wbr-HK-OCP" firstAttribute="leading" secondItem="Dvv-8k-c9A" secondAttribute="leading" constant="8" id="mVu-A3-sII"/>
+                                                <constraint firstAttribute="bottom" secondItem="dcG-9X-5km" secondAttribute="bottom" id="mgv-vI-Cs7"/>
+                                                <constraint firstItem="21w-2w-40O" firstAttribute="top" secondItem="Dvv-8k-c9A" secondAttribute="top" constant="8" id="v23-LV-ihX"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -67,6 +91,11 @@
                                     <constraint firstAttribute="bottom" secondItem="Dvv-8k-c9A" secondAttribute="bottom" id="geA-W8-wrz"/>
                                     <constraint firstItem="Dvv-8k-c9A" firstAttribute="leading" secondItem="Kpi-Xp-seS" secondAttribute="leading" id="pnT-ly-04w"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="flowerDescription" destination="21w-2w-40O" id="bma-KU-Brs"/>
+                                    <outlet property="flowerImage" destination="dcG-9X-5km" id="u2l-Da-oTN"/>
+                                    <outlet property="flowerTitle" destination="wbr-HK-OCP" id="jEX-aM-qTj"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -75,10 +104,31 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="vAR-hR-pC1"/>
+                    <connections>
+                        <segue destination="i7B-fS-5BG" kind="show" identifier="MasterToDetail" id="uaE-ND-PQy"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOx-fv-DKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="480.80000000000001" y="122.78860569715144"/>
+        </scene>
+        <!--Flower Info Controller-->
+        <scene sceneID="zJR-1U-mjx">
+            <objects>
+                <viewController id="i7B-fS-5BG" customClass="FlowerInfoController" customModule="FlowerCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jx7-jg-2h0"/>
+                        <viewControllerLayoutGuide type="bottom" id="a1k-2c-X2e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s7J-yl-4Eb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A9T-mw-D6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1484" y="123"/>
         </scene>
     </scenes>
 </document>

@@ -27,8 +27,8 @@ import UIKit
 
 class FlowerListFlowLayout: UICollectionViewFlowLayout {
     
-    var standardItemAlpha: CGFloat = 0.5
-    var standardItemScale: CGFloat = 0.8
+    var standardItemAlpha: CGFloat = 0.8
+    var standardItemScale: CGFloat = 0.85
     
     var isSetup = false
     
@@ -82,7 +82,6 @@ class FlowerListFlowLayout: UICollectionViewFlowLayout {
         let proposedContentOffsetCenterOrigin = proposedContentOffset.x + center
         
         let closest = layoutAttributes!.sorted { abs($0.center.x - proposedContentOffsetCenterOrigin) < abs($1.center.x - proposedContentOffsetCenterOrigin) }.first ?? UICollectionViewLayoutAttributes()
-        
         let targetContentOffset = CGPoint(x: floor(closest.center.x - center), y: proposedContentOffset.y)
         
         return targetContentOffset
@@ -91,10 +90,21 @@ class FlowerListFlowLayout: UICollectionViewFlowLayout {
     func setupCollectionView() {
         self.collectionView!.decelerationRate = UIScrollViewDecelerationRateFast
         
+        self.estimatedItemSize = CGSize(width: self.itemSize.width * self.standardItemScale,
+                                          height: self.itemSize.height * self.standardItemScale)
+        self.minimumLineSpacing = -flexibleWidth(10)
+        
+        let items = self.collectionView!.numberOfItems(inSection: 0)
+        
         guard let collectionSize = collectionView?.bounds.size else { return }
         let xInset = (collectionSize.width - self.itemSize.width) / 2
-        let yInset = (collectionSize.height - self.itemSize.height) / 2
-        
-        self.sectionInset = UIEdgeInsetsMake(xInset, yInset, xInset, yInset)
+//        let yInset = (collectionSize.height - self.itemSize.height) / 2
+        self.sectionInset = UIEdgeInsetsMake(0, xInset, 0, xInset + (self.minimumLineSpacing * CGFloat(max(1, items) - 1)))
+    }
+}
+
+extension FlowerListFlowLayout {
+    func flexibleWidth(_ width: CGFloat) -> CGFloat {
+        return UIScreen.main.bounds.width * (width / collectionView!.bounds.width)
     }
 }
