@@ -15,8 +15,8 @@ class NavigationControllerDelegate : NSObject, UINavigationControllerDelegate {
         
         if operation == .push {
             return FlowerCollectionViewPushAnimator()
+        } else {
+            return FlowerCollectionViewPopAnimator()
         }
-        
-        return nil
     }
 }

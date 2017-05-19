@@ -28,6 +28,10 @@ class FlowerInfosController: UICollectionViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
+    
+    @IBAction func back() {
+        _ = navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: UICollectionViewDataSource
@@ -47,5 +51,12 @@ extension FlowerInfosController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlowerInfosCell
         
         return cell
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FlowerInfosSection", for: indexPath) as! FlowerInfosSectionHeader
+        
+        return header
     }
 }
