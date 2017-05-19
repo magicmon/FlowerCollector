@@ -48,7 +48,7 @@ class FlowerCollectionViewPopAnimator: NSObject, UIViewControllerAnimatedTransit
         
         fromViewController.view.alpha = 1.0
         toViewController.view.alpha = 0.0
-        toViewController.view.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        toViewController.view.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         UIView.animate(withDuration: animationDuration, animations: {
             toViewController.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             fromViewController.view.alpha = 0.5

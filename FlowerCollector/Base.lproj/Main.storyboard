@@ -131,11 +131,11 @@
                             <size key="itemSize" width="300" height="300"/>
                             <size key="headerReferenceSize" width="50" height="64"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlowerInfosCell" id="8uQ-9f-ErI" customClass="FlowerInfosCell" customModule="FlowerCollector" customModuleProvider="target">
-                                <rect key="frame" x="38" y="74" width="300" height="300"/>
+                                <rect key="frame" x="38" y="79" width="300" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
