@@ -1,6 +1,7 @@
 //
-//  CharacterFlowLayout.swift
-//  Character Collector
+//  FlowerListFlowLayout.swift
+//  FlowerCollector
+//
 /*
  * Copyright (c) 2016 Razeware LLC
  *
@@ -42,16 +43,16 @@ class FlowerListFlowLayout: UICollectionViewFlowLayout {
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         let attributes = super.layoutAttributesForElements(in: rect)
-        var attributesCopy = [UICollectionViewLayoutAttributes]()
+        var newAttributes = [UICollectionViewLayoutAttributes]()
         
         for itemAttributes in attributes! {
-            let itemAttributesCopy = itemAttributes.copy() as! UICollectionViewLayoutAttributes
-            changeLayoutAttributes(itemAttributesCopy)
+            let newItemAttributes = itemAttributes.copy() as! UICollectionViewLayoutAttributes
+            changeLayoutAttributes(newItemAttributes)
             
-            attributesCopy.append(itemAttributesCopy)
+            newAttributes.append(newItemAttributes)
         }
         
-        return attributesCopy
+        return newAttributes
     }
 
     override open func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {

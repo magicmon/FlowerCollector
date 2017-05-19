@@ -25,14 +25,6 @@ class FlowerListController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MasterToDetail" {
-            let detailViewController = segue.destination as! FlowerInfoController
-            detailViewController.title = "\(currentCard)"
-//            detailViewController.character = sender as? Characters
-        }
-    }
 }
 
 
@@ -48,7 +40,7 @@ extension FlowerListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlowerListCell", for: indexPath) as! FlowerListCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlowerListCell
         cell.flower = flowersData[indexPath.item]
         
         return cell
@@ -59,7 +51,8 @@ extension FlowerListController {
 extension FlowerListController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == currentCard {
-            performSegue(withIdentifier: "MasterToDetail", sender: nil)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FlowerInfosVC") as? FlowerInfosController
+            self.navigationController?.pushViewController(vc!, animated: true)
         }
     }
 }

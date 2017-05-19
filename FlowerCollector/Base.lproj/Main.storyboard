@@ -12,7 +12,6 @@
         <!--Navigation Controller-->
         <scene sceneID="EQp-KU-H6F">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ntc-yd-0gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="bM7-Gh-h3R" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pSP-d4-Qd5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -23,9 +22,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
+                        <outlet property="delegate" destination="I87-0Q-RO3" id="JOV-gp-RBf"/>
                         <segue destination="4q3-tk-q63" kind="relationship" relationship="rootViewController" id="6LD-3Z-4DV"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ntc-yd-0gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="I87-0Q-RO3" customClass="NavigationControllerDelegate" customModule="FlowerCollector" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-370" y="123"/>
         </scene>
@@ -42,6 +44,14 @@
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="standardItemAlpha">
+                                    <real key="value" value="0.80000000000000004"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="standardItemScale">
+                                    <real key="value" value="0.84999999999999998"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlowerListCell" id="Kpi-Xp-seS" customClass="FlowerListCell" customModule="FlowerCollector" customModuleProvider="target">
@@ -104,31 +114,60 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="vAR-hR-pC1"/>
-                    <connections>
-                        <segue destination="i7B-fS-5BG" kind="show" identifier="MasterToDetail" id="uaE-ND-PQy"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOx-fv-DKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="480.80000000000001" y="122.78860569715144"/>
         </scene>
-        <!--Flower Info Controller-->
-        <scene sceneID="zJR-1U-mjx">
+        <!--Flower Infos Controller-->
+        <scene sceneID="TZg-Jz-KB5">
             <objects>
-                <viewController id="i7B-fS-5BG" customClass="FlowerInfoController" customModule="FlowerCollector" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jx7-jg-2h0"/>
-                        <viewControllerLayoutGuide type="bottom" id="a1k-2c-X2e"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s7J-yl-4Eb">
+                <collectionViewController storyboardIdentifier="FlowerInfosVC" id="3jp-e1-pRb" customClass="FlowerInfosController" customModule="FlowerCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="TZV-su-lcj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A9T-mw-D6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p4O-tI-RHW">
+                            <size key="itemSize" width="300" height="300"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlowerInfosCell" id="8uQ-9f-ErI" customClass="FlowerInfosCell" customModule="FlowerCollector" customModuleProvider="target">
+                                <rect key="frame" x="38" y="0.0" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D13-aR-UJU">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                            <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="300" id="FgL-wS-w66"/>
+                                                <constraint firstAttribute="height" constant="300" id="VKh-5j-1OD"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="D13-aR-UJU" secondAttribute="bottom" id="0Vg-HV-bmK"/>
+                                    <constraint firstItem="D13-aR-UJU" firstAttribute="leading" secondItem="8uQ-9f-ErI" secondAttribute="leading" id="8xY-6r-Q6X"/>
+                                    <constraint firstItem="D13-aR-UJU" firstAttribute="top" secondItem="8uQ-9f-ErI" secondAttribute="top" id="b9i-o9-2lv"/>
+                                    <constraint firstAttribute="trailing" secondItem="D13-aR-UJU" secondAttribute="trailing" id="cJB-OF-w0o"/>
+                                </constraints>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="3jp-e1-pRb" id="DZ1-5I-HSU"/>
+                            <outlet property="delegate" destination="3jp-e1-pRb" id="9OT-dS-gbH"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yQz-Sf-H0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="123"/>
+            <point key="canvasLocation" x="1369" y="123"/>
         </scene>
     </scenes>
 </document>
