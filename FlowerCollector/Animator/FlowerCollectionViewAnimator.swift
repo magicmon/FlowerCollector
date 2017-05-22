@@ -69,46 +69,48 @@ class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimated
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let fromViewController = transitionContext.viewController(forKey: .from)!
         let toViewController = transitionContext.viewController(forKey: .to)!
-
-        transitionContext.containerView.insertSubview(toViewController.view, aboveSubview: fromViewController.view)
-        
-        
         let sourceVC = fromViewController as? UICollectionViewController
         let destinationVC = toViewController as! FlowerDetailController
+        
+        transitionContext.containerView.insertSubview(toViewController.view, aboveSubview: fromViewController.view)
         
         guard let selectedItem = sourceVC?.collectionView?.indexPathsForSelectedItems?.first else { return }
         guard let infoCell = sourceVC?.collectionView?.cellForItem(at: selectedItem) as? FlowerInfosCell else { return }
         
-        
+        // snapBackgroundView
         let snapBackgroundView = UIView(frame: infoCell.contentView.frame)
         snapBackgroundView.backgroundColor = infoCell.contentView.backgroundColor
         snapBackgroundView.frame.origin = infoCell.contentView.convert(.zero, to: nil)
         transitionContext.containerView.addSubview(snapBackgroundView)
         
-        guard let snapView = infoCell.imageView.snapshotView() else { return }
-        snapView.frame.origin = infoCell.imageView.convert(.zero, to: nil)
-        transitionContext.containerView.addSubview(snapView)
         
-        toViewController.view.isHidden = true
+        // snapImageView
+        guard let snapImageView = infoCell.imageView.snapshotView() else { return }
+        snapImageView.frame.origin = infoCell.imageView.convert(.zero, to: nil)
+        transitionContext.containerView.addSubview(snapImageView)
+        
+        destinationVC.view.isHidden = true
         
         let animationScaleX: CGFloat = destinationVC.imageView.frame.size.width / infoCell.imageView.frame.size.width
         let animationScaleY: CGFloat = destinationVC.imageView.frame.size.height / infoCell.imageView.frame.size.height
         
         UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
             // snap View
-            snapView.transform = CGAffineTransform(scaleX: animationScaleX, y: animationScaleY)
-            snapView.center = CGPoint(x: destinationVC.imageView.center.x, y: destinationVC.imageView.center.y)
+            snapImageView.transform = CGAffineTransform(scaleX: animationScaleX, y: animationScaleY)
+            snapImageView.center = CGPoint(x: destinationVC.imageView.center.x, y: destinationVC.imageView.center.y)
             
             snapBackgroundView.transform = CGAffineTransform(scaleX: animationScaleX * 2, y:animationScaleY * 2)
             
+            
+            sourceVC?.view.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
         }) { (finished) in
             
-            snapView.removeFromSuperview()
+            snapImageView.removeFromSuperview()
             snapBackgroundView.removeFromSuperview()
             
+            sourceVC?.view.transform = .identity
             
-            
-            toViewController.view.isHidden = false
+            destinationVC.view.isHidden = false
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }

@@ -20,7 +20,11 @@ class NavigationControllerDelegate : NSObject, UINavigationControllerDelegate {
                 return FlowerCollectionViewPushAnimator()
             }
         } else {
-            return FlowerCollectionViewPopAnimator()
+            if fromVC is FlowerDetailController {
+                return nil
+            } else {
+                return FlowerCollectionViewPopAnimator()
+            }
         }
     }
 }
