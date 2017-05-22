@@ -73,19 +73,20 @@ class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimated
         transitionContext.containerView.insertSubview(toViewController.view, aboveSubview: fromViewController.view)
         
         
-        // source
         let sourceVC = fromViewController as? UICollectionViewController
         let destinationVC = toViewController as! FlowerDetailController
         
         guard let selectedItem = sourceVC?.collectionView?.indexPathsForSelectedItems?.first else { return }
-        
         guard let infoCell = sourceVC?.collectionView?.cellForItem(at: selectedItem) as? FlowerInfosCell else { return }
         
-        let leftUpperPoint: CGPoint = infoCell.contentView.convert(.zero, to: nil)
         
-        guard let snapView = infoCell.contentView.snapshotView() else { return }
-        snapView.frame.origin = leftUpperPoint
+        let snapBackgroundView = UIView(frame: infoCell.contentView.frame)
+        snapBackgroundView.backgroundColor = infoCell.contentView.backgroundColor
+        snapBackgroundView.frame.origin = infoCell.contentView.convert(.zero, to: nil)
+        transitionContext.containerView.addSubview(snapBackgroundView)
         
+        guard let snapView = infoCell.imageView.snapshotView() else { return }
+        snapView.frame.origin = infoCell.imageView.convert(.zero, to: nil)
         transitionContext.containerView.addSubview(snapView)
         
         toViewController.view.isHidden = true
@@ -98,12 +99,14 @@ class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimated
             snapView.transform = CGAffineTransform(scaleX: animationScaleX, y: animationScaleY)
             snapView.center = CGPoint(x: destinationVC.imageView.center.x, y: destinationVC.imageView.center.y)
             
-            sourceVC?.view.alpha = 0.5
+            snapBackgroundView.transform = CGAffineTransform(scaleX: animationScaleX * 2, y:animationScaleY * 2)
+            
         }) { (finished) in
             
             snapView.removeFromSuperview()
+            snapBackgroundView.removeFromSuperview()
             
-            sourceVC?.view.alpha = 1.0
+            
             
             toViewController.view.isHidden = false
             
