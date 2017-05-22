@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -143,10 +144,22 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D13-aR-UJU">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                            <color key="backgroundColor" red="0.84290409088134766" green="0.88069134950637817" blue="0.95677226781845093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bouquet-2207206_1280" translatesAutoresizingMaskIntoConstraints="NO" id="pjG-rd-aaG">
+                                                    <rect key="frame" x="30" y="50" width="240" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="HGT-6u-vGO"/>
+                                                        <constraint firstAttribute="width" constant="240" id="epr-sC-j1S"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                             <constraints>
+                                                <constraint firstItem="pjG-rd-aaG" firstAttribute="centerX" secondItem="D13-aR-UJU" secondAttribute="centerX" id="6Z3-CU-2zj"/>
                                                 <constraint firstAttribute="width" constant="300" id="FgL-wS-w66"/>
                                                 <constraint firstAttribute="height" constant="300" id="VKh-5j-1OD"/>
+                                                <constraint firstItem="pjG-rd-aaG" firstAttribute="centerY" secondItem="D13-aR-UJU" secondAttribute="centerY" id="XEa-b9-bRl"/>
+                                                <constraint firstItem="pjG-rd-aaG" firstAttribute="centerX" secondItem="D13-aR-UJU" secondAttribute="centerX" id="nCj-Tc-ZDj"/>
+                                                <constraint firstItem="pjG-rd-aaG" firstAttribute="centerY" secondItem="D13-aR-UJU" secondAttribute="centerY" id="ymi-Qj-zhi"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -157,6 +170,9 @@
                                     <constraint firstItem="D13-aR-UJU" firstAttribute="top" secondItem="8uQ-9f-ErI" secondAttribute="top" id="b9i-o9-2lv"/>
                                     <constraint firstAttribute="trailing" secondItem="D13-aR-UJU" secondAttribute="trailing" id="cJB-OF-w0o"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="pjG-rd-aaG" id="04R-Ac-rLh"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlowerInfosSection" id="EIf-yt-oxv" customClass="FlowerInfosSectionHeader" customModule="FlowerCollector" customModuleProvider="target">
@@ -226,8 +242,44 @@
             </objects>
             <point key="canvasLocation" x="1368.8" y="122.78860569715144"/>
         </scene>
+        <!--Flower Detail Controller-->
+        <scene sceneID="cJA-N7-tuv">
+            <objects>
+                <viewController storyboardIdentifier="FlowerDetailVC" id="Tev-5T-tEI" customClass="FlowerDetailController" customModule="FlowerCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l6O-Yo-gjo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cy2-ya-YLS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bo7-w0-6KZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bouquet-2207206_1280" translatesAutoresizingMaskIntoConstraints="NO" id="uct-HP-0AW">
+                                <rect key="frame" x="37" y="20" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="DI1-EG-BrI"/>
+                                    <constraint firstAttribute="height" constant="300" id="gsQ-v8-1B0"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uct-HP-0AW" firstAttribute="leading" secondItem="bo7-w0-6KZ" secondAttribute="leadingMargin" constant="21" id="8Qb-Eg-tJe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uct-HP-0AW" secondAttribute="trailing" constant="22" id="co5-g3-vn3"/>
+                            <constraint firstItem="uct-HP-0AW" firstAttribute="top" secondItem="l6O-Yo-gjo" secondAttribute="bottom" id="z4x-zx-hy9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="uct-HP-0AW" id="pSv-KS-cnP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CZG-0R-Ekf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2224.8000000000002" y="122.78860569715144"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="bouquet-2207206_1280" width="853" height="1280"/>
         <image name="common_navigationbar_btn_back_black" width="20" height="20"/>
     </resources>
 </document>

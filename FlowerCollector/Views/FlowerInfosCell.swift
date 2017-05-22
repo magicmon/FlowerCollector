@@ -10,8 +10,12 @@ import UIKit
 
 class FlowerInfosCell: UICollectionViewCell {
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        self.contentView.backgroundColor = .cyan
         
         self.layer.shadowColor = UIColor.gray.cgColor
         self.layer.shadowOffset = CGSize(width: 5.0, height: 15.0)

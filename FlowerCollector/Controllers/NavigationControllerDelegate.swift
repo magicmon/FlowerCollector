@@ -14,7 +14,11 @@ class NavigationControllerDelegate : NSObject, UINavigationControllerDelegate {
                               from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         if operation == .push {
-            return FlowerCollectionViewPushAnimator()
+            if fromVC is FlowerInfosController {
+                return FlowerCollectionViewDetailPushAnimator()
+            } else {
+                return FlowerCollectionViewPushAnimator()
+            }
         } else {
             return FlowerCollectionViewPopAnimator()
         }

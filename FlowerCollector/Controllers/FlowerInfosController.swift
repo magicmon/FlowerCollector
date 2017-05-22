@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "FlowerInfosCell"
 
 class FlowerInfosController: UICollectionViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -58,5 +58,11 @@ extension FlowerInfosController {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FlowerInfosSection", for: indexPath) as! FlowerInfosSectionHeader
         
         return header
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "FlowerDetailVC") as? FlowerDetailController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
