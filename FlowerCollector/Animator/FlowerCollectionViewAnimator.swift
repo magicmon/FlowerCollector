@@ -77,14 +77,14 @@ class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimated
         guard let selectedItem = sourceVC?.collectionView?.indexPathsForSelectedItems?.first else { return }
         guard let infoCell = sourceVC?.collectionView?.cellForItem(at: selectedItem) as? FlowerInfosCell else { return }
         
-        // snapBackgroundView
+        // snapBackgroundView (cell의 ContentView)
         let snapBackgroundView = UIView(frame: infoCell.contentView.frame)
         snapBackgroundView.backgroundColor = infoCell.contentView.backgroundColor
         snapBackgroundView.frame.origin = infoCell.contentView.convert(.zero, to: nil)
         transitionContext.containerView.addSubview(snapBackgroundView)
         
         
-        // snapImageView
+        // snapImageView (cell의 ImageView)
         guard let snapImageView = infoCell.imageView.snapshotView() else { return }
         snapImageView.frame.origin = infoCell.imageView.convert(.zero, to: nil)
         transitionContext.containerView.addSubview(snapImageView)
@@ -99,7 +99,7 @@ class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimated
             snapImageView.transform = CGAffineTransform(scaleX: animationScaleX, y: animationScaleY)
             snapImageView.center = CGPoint(x: destinationVC.imageView.center.x, y: destinationVC.imageView.center.y)
             
-            snapBackgroundView.transform = CGAffineTransform(scaleX: animationScaleX * 2, y:animationScaleY * 2)
+            snapBackgroundView.transform = CGAffineTransform(scaleX: animationScaleX * 3, y:animationScaleY * 3)
             
             
             sourceVC?.view.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)

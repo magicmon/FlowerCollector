@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -139,7 +138,7 @@
                                 <rect key="frame" x="38" y="79" width="300" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D13-aR-UJU">
@@ -209,6 +208,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="EPh-hd-d1p" firstAttribute="centerY" secondItem="XEP-l4-5eW" secondAttribute="centerY" id="3JF-Vh-PWM"/>
                                         <constraint firstAttribute="bottom" secondItem="NQM-Mn-z7h" secondAttribute="bottom" id="R8j-KF-FlU"/>
@@ -289,19 +289,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bouquet-2207206_1280" translatesAutoresizingMaskIntoConstraints="NO" id="uct-HP-0AW">
                                 <rect key="frame" x="37" y="64" width="300" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="OBL-ZI-r5a"/>
-                                    <constraint firstAttribute="height" constant="300" id="ftU-Ja-UN3"/>
+                                    <constraint firstAttribute="height" constant="300" id="KpJ-MB-GqI"/>
+                                    <constraint firstAttribute="width" constant="300" id="kLP-Np-3Rz"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="uct-HP-0AW" firstAttribute="top" secondItem="Qrj-5b-7me" secondAttribute="bottom" id="1YG-aP-SXy"/>
                             <constraint firstItem="Qrj-5b-7me" firstAttribute="top" secondItem="bo7-w0-6KZ" secondAttribute="top" id="3cR-SK-AOB"/>
+                            <constraint firstItem="uct-HP-0AW" firstAttribute="leading" secondItem="bo7-w0-6KZ" secondAttribute="leading" constant="37" id="EJm-Ou-sP7"/>
                             <constraint firstItem="Qrj-5b-7me" firstAttribute="leading" secondItem="bo7-w0-6KZ" secondAttribute="leading" id="F8q-tJ-X1p"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uct-HP-0AW" secondAttribute="trailing" constant="22" id="UbH-my-z9G"/>
-                            <constraint firstItem="uct-HP-0AW" firstAttribute="top" secondItem="Qrj-5b-7me" secondAttribute="bottom" id="svy-ei-6ga"/>
+                            <constraint firstAttribute="trailing" secondItem="uct-HP-0AW" secondAttribute="trailing" constant="38" id="bsV-xA-Nr6"/>
                             <constraint firstAttribute="trailing" secondItem="Qrj-5b-7me" secondAttribute="trailing" id="v66-PH-c9l"/>
-                            <constraint firstItem="uct-HP-0AW" firstAttribute="leading" secondItem="bo7-w0-6KZ" secondAttribute="leadingMargin" constant="21" id="xM2-kv-hSG"/>
                         </constraints>
                     </view>
                     <connections>
