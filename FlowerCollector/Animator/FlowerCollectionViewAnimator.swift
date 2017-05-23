@@ -91,7 +91,7 @@ class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimated
         
         
         // snapImageView (cell의 ImageView)
-        guard let snapImageView = infoCell.imageView.snapshotView() else {
+        guard let snapImageView = infoCell.imageView.snapshot else {
             transitionContext.completeTransition(true)
             return
         }
@@ -100,7 +100,7 @@ class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimated
         
         
         // descriptionView
-        guard let snapDescription = destinationVC.descriptionView.snapshotView() else {
+        guard let snapDescription = destinationVC.descriptionView.snapshot else {
             transitionContext.completeTransition(true)
             return
         }
@@ -177,7 +177,7 @@ class FlowerCollectionViewDetailPopAnimator: NSObject, UIViewControllerAnimatedT
         snapBackgroundView.transform = CGAffineTransform(scaleX: defaultScaleX * 3, y: defaultScaleY * 3)
         
         // imageView
-        guard let snapImageView = sourceVC.imageView.snapshotView() else {
+        guard let snapImageView = sourceVC.imageView.snapshot else {
             transitionContext.completeTransition(true)
             return
         }
@@ -186,7 +186,7 @@ class FlowerCollectionViewDetailPopAnimator: NSObject, UIViewControllerAnimatedT
         
         
         // description
-        guard let snapDescription = sourceVC.descriptionView.snapshotView() else {
+        guard let snapDescription = sourceVC.descriptionView.snapshot else {
             transitionContext.completeTransition(true)
             return
         }
@@ -221,20 +221,16 @@ class FlowerCollectionViewDetailPopAnimator: NSObject, UIViewControllerAnimatedT
 
 
 extension UIView {
-    func snapshotImage(afterScreenUpdates: Bool = false) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0)
-        drawHierarchy(in: bounds, afterScreenUpdates: afterScreenUpdates)
-        let snapshotImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return snapshotImage
-    }
-    
-    func snapshotView() -> UIView? {
-        if let snapshotImage = snapshotImage() {
-            return UIImageView(image: snapshotImage)
-        } else {
+    var snapshot: UIView? {
+        UIGraphicsBeginImageContext(self.frame.size)
+        guard let context = UIGraphicsGetCurrentContext() else {
             return nil
         }
+        layer.render(in: context)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return UIImageView(image: image)
     }
     
     var width: CGFloat {

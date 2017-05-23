@@ -144,7 +144,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D13-aR-UJU">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bouquet-2207206_1280" translatesAutoresizingMaskIntoConstraints="NO" id="pjG-rd-aaG">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Colorful-Flowers-Transparent-Background" translatesAutoresizingMaskIntoConstraints="NO" id="pjG-rd-aaG">
                                                     <rect key="frame" x="30" y="50" width="240" height="200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="HGT-6u-vGO"/>
@@ -277,7 +277,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Qe9-8R-T28" secondAttribute="bottom" id="qqT-nN-OYa"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bouquet-2207206_1280" translatesAutoresizingMaskIntoConstraints="NO" id="uct-HP-0AW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Colorful-Flowers-Transparent-Background" translatesAutoresizingMaskIntoConstraints="NO" id="uct-HP-0AW">
                                 <rect key="frame" x="37" y="64" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="KpJ-MB-GqI"/>
@@ -364,7 +364,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bouquet-2207206_1280" width="853" height="1280"/>
+        <image name="Colorful-Flowers-Transparent-Background" width="512" height="284"/>
         <image name="common_navigationbar_btn_back_black" width="20" height="20"/>
     </resources>
 </document>
