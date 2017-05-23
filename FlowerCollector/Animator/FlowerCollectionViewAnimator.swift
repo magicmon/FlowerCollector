@@ -63,7 +63,7 @@ class FlowerCollectionViewPopAnimator: NSObject, UIViewControllerAnimatedTransit
 class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return 0.45
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -98,10 +98,23 @@ class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimated
         snapImageView.frame.origin = infoCell.imageView.convert(.zero, to: nil)
         transitionContext.containerView.addSubview(snapImageView)
         
-        destinationVC.view.isHidden = true
         
+        // descriptionView
+        guard let snapDescription = destinationVC.descriptionView.snapshotView() else {
+            transitionContext.completeTransition(true)
+            return
+        }
+        snapDescription.frame.origin = destinationVC.descriptionView.convert(.zero, to: nil)
+        snapDescription.frame = CGRect(x: snapDescription.frame.origin.x, y: destinationVC.view.height , width: snapDescription.width, height: snapDescription.height)
+        transitionContext.containerView.addSubview(snapDescription)
+        
+        
+        // scale
         let animationScaleX: CGFloat = destinationVC.imageView.width / infoCell.imageView.width
         let animationScaleY: CGFloat = destinationVC.imageView.height / infoCell.imageView.height
+        
+        
+        destinationVC.view.isHidden = true
         
         UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
             // snap View
@@ -110,14 +123,19 @@ class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimated
             
             snapBackgroundView.transform = CGAffineTransform(scaleX: animationScaleX * 3, y:animationScaleY * 3)
             
+            snapDescription.frame.origin = destinationVC.descriptionView.convert(.zero, to: nil)
             
             sourceVC?.view.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+            
         }) { (finished) in
             
             snapImageView.removeFromSuperview()
             snapBackgroundView.removeFromSuperview()
+            snapDescription.removeFromSuperview()
             
             sourceVC?.view.transform = .identity
+            sourceVC?.collectionView?.scrollToItem(at: selectedItem, at: .top, animated: false)
+            sourceVC?.collectionView?.contentOffset.y -= destinationVC.headerView.height
             
             destinationVC.view.isHidden = false
             
@@ -129,7 +147,7 @@ class FlowerCollectionViewDetailPushAnimator: NSObject, UIViewControllerAnimated
 class FlowerCollectionViewDetailPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.4
+        return 0.45
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -148,6 +166,8 @@ class FlowerCollectionViewDetailPopAnimator: NSObject, UIViewControllerAnimatedT
         
         
         // from
+        
+        // background
         let snapBackgroundView = UIView(frame: infoCell.contentView.frame)
         snapBackgroundView.backgroundColor = infoCell.contentView.backgroundColor
         snapBackgroundView.frame.origin = infoCell.contentView.convert(.zero, to: nil)
@@ -156,6 +176,7 @@ class FlowerCollectionViewDetailPopAnimator: NSObject, UIViewControllerAnimatedT
         let defaultScaleY: CGFloat = sourceVC.imageView.height / infoCell.imageView.height
         snapBackgroundView.transform = CGAffineTransform(scaleX: defaultScaleX * 3, y: defaultScaleY * 3)
         
+        // imageView
         guard let snapImageView = sourceVC.imageView.snapshotView() else {
             transitionContext.completeTransition(true)
             return
@@ -163,22 +184,35 @@ class FlowerCollectionViewDetailPopAnimator: NSObject, UIViewControllerAnimatedT
         snapImageView.frame.origin = sourceVC.imageView.convert(.zero, to: nil)
         transitionContext.containerView.addSubview(snapImageView)
         
+        
+        // description
+        guard let snapDescription = sourceVC.descriptionView.snapshotView() else {
+            transitionContext.completeTransition(true)
+            return
+        }
+        snapDescription.frame.origin = sourceVC.descriptionView.convert(.zero, to: nil)
+        transitionContext.containerView.addSubview(snapDescription)
+        
+        
         // scale
         let animationScaleX: CGFloat = infoCell.imageView.frame.size.width / sourceVC.imageView.frame.size.width
         let animationScaleY: CGFloat = infoCell.imageView.frame.size.height / sourceVC.imageView.frame.size.height
         
         UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
             
+            snapBackgroundView.transform = CGAffineTransform.identity
+            
             snapImageView.transform = CGAffineTransform(scaleX: animationScaleX, y: animationScaleY)
             let cellImageOrigin: CGPoint = infoCell.imageView.convert(.zero, to: nil)
             snapImageView.frame = CGRect(x: cellImageOrigin.x, y: cellImageOrigin.y, width: infoCell.imageView.frame.size.width, height: infoCell.imageView.frame.size.height)
             
-            snapBackgroundView.transform = CGAffineTransform.identity
+            snapDescription.frame.origin.y += sourceVC.view.height
             
         }) { (finished) in
             
             snapImageView.removeFromSuperview()
             snapBackgroundView.removeFromSuperview()
+            snapDescription.removeFromSuperview()
             
             transitionContext.completeTransition(true)
         }
@@ -187,9 +221,9 @@ class FlowerCollectionViewDetailPopAnimator: NSObject, UIViewControllerAnimatedT
 
 
 extension UIView {
-    func snapshotImage() -> UIImage? {
+    func snapshotImage(afterScreenUpdates: Bool = false) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0)
-        drawHierarchy(in: bounds, afterScreenUpdates: false)
+        drawHierarchy(in: bounds, afterScreenUpdates: afterScreenUpdates)
         let snapshotImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return snapshotImage

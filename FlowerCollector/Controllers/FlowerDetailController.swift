@@ -10,13 +10,15 @@ import UIKit
 
 class FlowerDetailController: UIViewController {
 
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var descriptionView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        headerView.backgroundColor = .cyan
         self.view.backgroundColor = .cyan
     }
 
