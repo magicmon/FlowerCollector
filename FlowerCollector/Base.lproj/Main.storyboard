@@ -271,8 +271,7 @@
                                         </constraints>
                                         <state key="normal" image="common_navigationbar_btn_back_black"/>
                                         <connections>
-                                            <action selector="back" destination="3jp-e1-pRb" eventType="touchUpInside" id="slM-Qp-7uk"/>
-                                            <action selector="back" destination="Tev-5T-tEI" eventType="touchUpInside" id="vUA-qU-0cX"/>
+                                            <action selector="back" destination="Tev-5T-tEI" eventType="touchUpInside" id="ArC-Ca-JR6"/>
                                         </connections>
                                     </button>
                                 </subviews>

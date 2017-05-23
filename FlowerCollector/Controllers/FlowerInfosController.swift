@@ -12,6 +12,8 @@ private let reuseIdentifier = "FlowerInfosCell"
 
 class FlowerInfosController: UICollectionViewController {
     
+    var selectedIndexPath: IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -41,7 +43,6 @@ extension FlowerInfosController {
         return 1
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return 5
@@ -49,19 +50,19 @@ extension FlowerInfosController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlowerInfosCell
-        
         return cell
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FlowerInfosSection", for: indexPath) as! FlowerInfosSectionHeader
-        
         return header
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "FlowerDetailVC") as? FlowerDetailController {
+            
+            selectedIndexPath = indexPath
+            
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
