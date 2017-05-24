@@ -3,6 +3,10 @@
 Implemented custom `UICollectionView` and custom `UIViewControllerAnimatedTransitioning` based on `Flower App` UX.
 
 
+# 참조
+[iOS Animation Tutorial: Custom View Controller Presentation Transitions](https://www.raywenderlich.com/146692/ios-animation-tutorial-custom-view-controller-presentation-transitions-2)
+
+
 # UI/UX
 I made it based on the `Flower App` UX.
 https://dribbble.com/shots/3489204-Flower-App

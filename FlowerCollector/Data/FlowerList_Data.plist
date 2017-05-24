@@ -4,21 +4,19 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>milk-can-1990088_1280</string>
+		<string>main_bouquet</string>
 		<key>title</key>
-		<string>Ant</string>
+		<string>BOUQUET</string>
 		<key>description</key>
-		<string>Not your parents sibling!
-This bug spits burning acid!</string>
+		<string>Pick your perfect</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>milk-can-1990088_1280</string>
+		<string>main_plant</string>
 		<key>title</key>
-		<string>Bear</string>
+		<string>PLANT</string>
 		<key>description</key>
-		<string>Does a bear poo in the woods?
-It&apos;s been days for this grumpy guy!</string>
+		<string>The best gift is</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -28,13 +26,13 @@ It&apos;s been days for this grumpy guy!</string>
 		<key>description</key>
 		<string>Guaranteed to</string>
 	</dict>
-    <dict>
-        <key>name</key>
-        <string>milk-can-1990088_1280</string>
-        <key>title</key>
-        <string>Brain</string>
-        <key>description</key>
-        <string>Guaranteed to</string>
-    </dict>
+	<dict>
+		<key>name</key>
+		<string>milk-can-1990088_1280</string>
+		<key>title</key>
+		<string>Brain</string>
+		<key>description</key>
+		<string>Guaranteed to</string>
+	</dict>
 </array>
 </plist>
