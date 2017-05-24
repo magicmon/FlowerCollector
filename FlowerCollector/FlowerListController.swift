@@ -8,11 +8,9 @@
 
 import UIKit
 
-private let reuseIdentifier = "FlowerListCell"
-
 class FlowerListController: UICollectionViewController {
     
-    let flowersData = Flowers.loadFlowers()
+    fileprivate let viewModel = FlowerListViewModel()
     
     var currentCard: Int = 0
     
@@ -34,14 +32,13 @@ extension FlowerListController {
         return 1
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return flowersData.count
+        return viewModel.items.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlowerListCell
-        cell.flower = flowersData[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlowerListCell.identifier, for: indexPath) as! FlowerListCell
+        cell.item = viewModel.items[indexPath.item]
         
         return cell
     }

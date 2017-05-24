@@ -13,20 +13,34 @@ class FlowerListCell: UICollectionViewCell {
     @IBOutlet weak var flowerTitle: UILabel!
     @IBOutlet weak var flowerDescription: UILabel!
     
-    var flower: Flowers? {
+    var item: FlowerListViewModelItem? {
         didSet {
-            if let theFlower = flower {
-                flowerImage.image = UIImage.init(named: "\(theFlower.name).jpg")
-                flowerTitle.text = theFlower.title
-                flowerDescription.text = theFlower.description
+            guard let item = item else { return }
+            
+            if let name = item.flowerList.name {
+                flowerImage.image = UIImage.init(named: "\(name).jpg")
+            } else {
+                flowerTitle.textColor = .black
+                flowerDescription.textColor = .black
             }
+            
+            flowerTitle.text = item.flowerList.title
+            flowerDescription.text = item.flowerList.description
         }
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        
         flowerImage.image = nil
         flowerTitle.text = ""
         flowerDescription.text = ""
+    }
+}
+
+
+extension UICollectionViewCell {
+    static var identifier: String {
+        return String(describing: self)
     }
 }

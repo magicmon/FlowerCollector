@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "FlowerInfosCell"
-
 class FlowerInfosController: UICollectionViewController {
     
     var selectedIndexPath: IndexPath?
@@ -49,7 +47,7 @@ extension FlowerInfosController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlowerInfosCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlowerInfosCell.identifier, for: indexPath) as! FlowerInfosCell
         return cell
     }
     
