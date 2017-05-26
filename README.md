@@ -10,6 +10,8 @@ Implemented custom `UICollectionView` and custom `UIViewControllerAnimatedTransi
 * Swift 3.0
 * Xcode 8
 
+# Guide
+https://magicmon.github.io/2017/05/25/UICollectionView-Animation
 
 # 참조
 [iOS Animation Tutorial: Custom View Controller Presentation Transitions](https://www.raywenderlich.com/146692/ios-animation-tutorial-custom-view-controller-presentation-transitions-2)
